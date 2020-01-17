@@ -1,0 +1,188 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: FDK_INGRESSNAME
+  namespace: {{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.global-static-ip-name:
+      valueFrom:
+        secretKeyRef:
+          name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+          key: FDK_INGRESS_IP_NAME
+    ingress.gcp.kubernetes.io/pre-shared-cert:
+      valueFrom:
+        secretKeyRef:
+          name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+          key: FDK_ALL_CERT_NAMES
+spec:
+  rules:
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_REGISTRATION
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: fdk-nginx-registration
+          servicePort: 8080
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_WWW
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: fdk-nginx-search
+          servicePort: 8080
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_NAP
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: fdk-nginx-search
+          servicePort: 8080
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_CONCEPT_CATALOGUE_GUI
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: concept-catalogue-gui
+          servicePort: 8080
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_CONCEPT_CATALOGUE
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: concept-catalogue
+          servicePort: 8080
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_HARVESTER
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: fdk-dataset-harvester-gui
+          servicePort: 8080
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_SSO
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: sso
+          servicePort: 8080
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_ADMIN
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: fdk-admin-gui
+          servicePort: 8080
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_ADMIN_API
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: fdk-harvest-admin
+          servicePort: 8080
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_BROKER
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: rabbitmq
+          servicePort: 8080
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_BROKER_ADMIN
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: rabbitmq
+          servicePort: 8080
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_PORTAL
+    http:
+      paths:
+      - backend:
+          serviceName: fdk-nginx-search
+          servicePort: 8080
+        path: /*
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_ORGANIZATION_CATALOGUE
+    http:
+      paths:
+        - backend:
+            serviceName: organization-catalogue
+            servicePort: 8080
+          path: /*
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_PROTOCOL
+    http:
+      paths:
+        - backend:
+            serviceName: fdk-nginx-records
+            servicePort: 8080
+          path: /*
+  - host:
+    valueFrom:
+      secretKeyRef:
+        name: ingress-{{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+        key: HOSTNAME_TRANSPORTPORTAL
+    http:
+      paths:
+        - backend:
+            serviceName: fdk-nginx-search
+            servicePort: 8080
+          path: /*
