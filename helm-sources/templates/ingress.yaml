@@ -107,7 +107,7 @@ spec:
             serviceName: fdk-nginx-records
             servicePort: 8080
           path: /*
-  - host: {{ required "Missing value HOSTNAME_TRANSPORTPORTAL" .Values.HOSTNAME_TRANSPORTPORTAL }}
+  - host: {{ .Values.HOSTNAME_TRANSPORTPORTAL }}
     http:
       paths:
         - backend:
