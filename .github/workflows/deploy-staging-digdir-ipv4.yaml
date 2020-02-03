@@ -1,4 +1,4 @@
-name: Deploy to staging (digdir) when pull request is created
+name: Deploy to staging (digdir ipv4) when pull request is created
 
 on:
   pull_request:
@@ -18,7 +18,7 @@ jobs:
         uses: timheuer/base64-to-file@v1
         with:
           fileName: 'secret.yaml'
-          encodedString: ${{ secrets.DIGDIR_FDK_INGRESS_STAGING }}
+          encodedString: ${{ secrets.DIGDIR_FDK_INGRESS_STAGING_IPV4 }}
 
       - name: Apply Helm template
         uses: stefanprodan/kube-tools@v1
