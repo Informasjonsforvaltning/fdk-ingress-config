@@ -72,13 +72,6 @@ spec:
         backend:
           serviceName: fdk-harvest-admin
           servicePort: 8080
-  - host: {{ required "Missing value HOSTNAME_BROKER" .Values.HOSTNAME_BROKER }}
-    http:
-      paths:
-      - path: /*
-        backend:
-          serviceName: rabbitmq
-          servicePort: 8080
   - host: {{ required "Missing value HOSTNAME_BROKER_ADMIN" .Values.HOSTNAME_BROKER_ADMIN }}
     http:
       paths:
