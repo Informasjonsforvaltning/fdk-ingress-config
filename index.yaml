@@ -3,12 +3,12 @@ entries:
   ingress:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-01-20T14:22:20.09155912+01:00"
+    created: "2020-02-14T13:47:53.939404602+01:00"
     description: Config for FDK ingress
-    digest: 3533f70f229cc19bd1805c983c8d92603f82e8d50522977ec2e893f4fec262e1
+    digest: bb3be404bc27407d10437111c3c4178e6c6467eeb67079b6eca625628f6d067f
     home: https://github.com/Informasjonsforvaltning/fdk-ingress-config
     name: ingress
     urls:
     - https://informasjonsforvaltning.github.io/fdk-ingress-config/ingress-0.1.0.tgz
     version: 0.1.0
-generated: "2020-01-20T14:22:20.091240696+01:00"
+generated: "2020-02-14T13:47:53.939041406+01:00"
