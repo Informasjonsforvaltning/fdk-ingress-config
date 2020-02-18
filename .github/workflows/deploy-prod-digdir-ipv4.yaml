@@ -52,4 +52,4 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: pullreminders/slack-action@master
         with:
-          args: '{\"channel\":\"C7NTH118T\",\"text\":\"Application: ingress deployed to digdir-prod\"}'
+          args: '{\"channel\":\"C7NTH118T\",\"text\":\"Application: ingress(ipv4) deployed to digdir-prod\"}'
