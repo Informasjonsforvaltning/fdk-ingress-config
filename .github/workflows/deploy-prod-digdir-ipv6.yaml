@@ -1,4 +1,4 @@
-name: Deploy to staging (digdir ipv6) when pull request is created
+name: Deploy to production (digdir ipv6) when pull request is created
 
 on:
   push:
