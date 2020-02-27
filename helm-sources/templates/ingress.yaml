@@ -107,3 +107,17 @@ spec:
             serviceName: fdk-nginx-search
             servicePort: 8080
           path: /*
+  - host: {{ required "Missing value HOSTNAME_MODEL_PUBLISHER" .Values.HOSTNAME_MODEL_PUBLISHER }}
+    http:
+      paths:
+        - backend:
+            serviceName: model-publisher
+            servicePort: 8080
+          path: /*
+  - host: {{ required "Missing value HOSTNAME_DATASERVICE_PUBLISHER" .Values.HOSTNAME_DATASERVICE_PUBLISHER }}
+    http:
+      paths:
+        - backend:
+            serviceName: dataservice-publisher
+            servicePort: 8080
+          path: /*
