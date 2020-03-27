@@ -121,3 +121,10 @@ spec:
             serviceName: dataservice-publisher
             servicePort: 8080
           path: /*
+  - host: {{ required "Missing value HOSTNAME_SEARCH" .Values.HOSTNAME_SEARCH }}
+    http:
+      paths:
+        - backend:
+            serviceName: fdk-fulltext-search
+            servicePort: 8080
+          path: /*
