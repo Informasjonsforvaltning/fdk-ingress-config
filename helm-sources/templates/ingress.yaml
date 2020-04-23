@@ -135,3 +135,17 @@ spec:
             serviceName: fdk-fulltext-search
             servicePort: 8080
           path: /*
+  - host: {{ required "Missing value HOSTNAME_DATASET_HARVESTER" .Values.HOSTNAME_DATASET_HARVESTER }}
+    http:
+      paths:
+        - backend:
+            serviceName: new-dataset-harvester
+            servicePort: 8080
+          path: /*
+  - host: {{ required "Missing value HOSTNAME_DATASERVICE_CATALOG" .Values.HOSTNAME_DATASERVICE_CATALOG }}
+    http:
+      paths:
+        - backend:
+            serviceName: fdk-nginx-dataservices
+            servicePort: 8080
+          path: /*
