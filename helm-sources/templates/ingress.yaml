@@ -142,6 +142,13 @@ spec:
             serviceName: new-dataset-harvester
             servicePort: 8080
           path: /*
+  - host: {{ required "Missing value HOSTNAME_TERMS_AND_CONDITIONS" .Values.HOSTNAME_TERMS_AND_CONDITIONS }}
+    http:
+      paths:
+        - backend:
+            serviceName: terms-and-conditions
+            servicePort: 8080
+          path: /*
   - host: {{ required "Missing value HOSTNAME_DATASERVICE_CATALOG" .Values.HOSTNAME_DATASERVICE_CATALOG }}
     http:
       paths:
