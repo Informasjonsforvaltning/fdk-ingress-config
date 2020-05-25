@@ -53,3 +53,4 @@ jobs:
         uses: pullreminders/slack-action@master
         with:
           args: '{\"channel\":\"C7NTH118T\",\"text\":\"Application: ingress(ipv6) deployed to digdir-staging\"}'
+
