@@ -1,4 +1,4 @@
-name: Deploy to demo (digdir ipv4)
+name: Deploy to demo (ipv6)
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         uses: timheuer/base64-to-file@v1
         with:
           fileName: 'secret.yaml'
-          encodedString: ${{ secrets.DIGDIR_FDK_INGRESS_DEMO_IPV4 }}
+          encodedString: ${{ secrets.DIGDIR_FDK_INGRESS_DEMO_IPV6 }}
 
       - name: Apply Helm template
         uses: stefanprodan/kube-tools@v1
@@ -52,4 +52,4 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: pullreminders/slack-action@master
         with:
-          args: '{\"channel\":\"C7NTH118T\",\"text\":\"Application: ingress(ipv4) deployed to digdir-demo\"}'
+          args: '{\"channel\":\"C7NTH118T\",\"text\":\"Application: ingress(ipv6) deployed to demo\"}'
