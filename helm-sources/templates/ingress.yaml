@@ -160,7 +160,7 @@ spec:
     http:
       paths:
         - backend:
-            serviceName: fdk-organization-bff
+            serviceName: fdk-nginx-organization
             servicePort: 8080
           path: /*
   - host: {{ required "Missing value HOSTNAME_REPORTS_BFF" .Values.HOSTNAME_REPORTS_BFF }}
