@@ -1,4 +1,4 @@
-name: Deploy to production (ipv6) when pull request is created
+name: Deploy to production (ipv6)
 
 on:
   push:
