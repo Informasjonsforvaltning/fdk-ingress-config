@@ -39,11 +39,6 @@ jobs:
         run: |
           gcloud container clusters get-credentials digdir-fdk-dev --region europe-north1-a --project digdir-fdk-dev
           kubectl apply -f ./kubectlapply.yaml --force
-          if ! kubectl --namespace=staging rollout status ingress ingress-staging-v4; then
-            kubectl --namespace=staging rollout undo ingess ingress-staging-v4
-            kubectl --namespace=staging rollout status ingress ingress-staging-v4
-            exit 1
-          fi
 
       - name: Notify slack
         uses: 8398a7/action-slack@v3
@@ -88,11 +83,6 @@ jobs:
         run: |
           gcloud container clusters get-credentials digdir-fdk-dev --region europe-north1-a --project digdir-fdk-dev
           kubectl apply -f ./kubectlapply.yaml --force
-          if ! kubectl --namespace=staging rollout status ingress ingress-staging-v6; then
-            kubectl --namespace=staging rollout undo ingess ingress-staging-v6
-            kubectl --namespace=staging rollout status ingress ingress-staging-v6
-            exit 1
-          fi
 
       - name: Notify slack
         uses: 8398a7/action-slack@v3
