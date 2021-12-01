@@ -3,7 +3,7 @@ name: Deploy to staging (ipv4 & ipv6)
 on:
   pull_request:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
       - name: Apply Helm template
         run: |
           helm template -f ${{ steps.write_file.outputs.filePath }} \
-          ./helm-chart-staging/ > ./kubectlapply.yaml
+          ./helm-sources-staging/ > ./kubectlapply.yaml
           chmod o+w ./kubectlapply.yaml
           cat kubectlapply.yaml
 
@@ -69,7 +69,7 @@ jobs:
       - name: Apply Helm template
         run: |
           helm template -f ${{ steps.write_file.outputs.filePath }} \
-          ./helm-chart-staging/ > ./kubectlapply.yaml
+          ./helm-sources-staging/ > ./kubectlapply.yaml
           chmod o+w ./kubectlapply.yaml
           cat kubectlapply.yaml
 
