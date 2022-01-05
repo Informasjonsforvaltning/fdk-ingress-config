@@ -13,6 +13,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-nginx-registration
@@ -22,6 +23,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-nginx-search
@@ -31,6 +33,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-nginx-search
@@ -40,6 +43,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: concept-catalogue-gui
@@ -49,6 +53,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: concept-catalog
@@ -58,6 +63,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: sso
@@ -67,6 +73,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-admin-gui
@@ -76,6 +83,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-harvest-admin
@@ -85,6 +93,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: rabbitmq
@@ -94,6 +103,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-nginx-search
@@ -103,6 +113,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: organization-catalogue
@@ -112,6 +123,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-nginx-records
@@ -121,6 +133,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: model-publisher
@@ -130,6 +143,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: dataservice-publisher
@@ -139,6 +153,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-dataservice-harvester
@@ -148,6 +163,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-fulltext-search
@@ -157,6 +173,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-dataset-harvester
@@ -166,6 +183,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-nginx-dataservices
@@ -175,6 +193,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: terms-and-conditions
@@ -184,6 +203,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-organization-bff
@@ -193,6 +213,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-reports-bff
@@ -202,6 +223,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: dataset-catalog
@@ -211,6 +233,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-metadata-quality-service
@@ -220,6 +243,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-informationmodel-harvester
@@ -229,6 +253,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: dcat-ap-no-validator-service
@@ -238,6 +263,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-nginx-publishers
@@ -247,6 +273,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-concept-harvester
@@ -256,6 +283,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-nginx-community
@@ -265,6 +293,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: fdk-nginx-sparql
@@ -274,6 +303,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: concept-catalog
@@ -283,6 +313,7 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: catalog-comments-service
