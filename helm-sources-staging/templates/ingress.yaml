@@ -120,10 +120,12 @@ spec:
     - host: {{ required "Missing value HOSTNAME_MODEL_PUBLISHER" .Values.HOSTNAME_MODEL_PUBLISHER }}
       http:
         paths:
-          - backend:
-              serviceName: model-publisher
-              servicePort: 8080
-            path: /*
+          - path: /*
+            backend:
+              service:
+                name: model-publisher
+                port:
+                  number: 8080
     - host: {{ required "Missing value HOSTNAME_DATASERVICE_PUBLISHER" .Values.HOSTNAME_DATASERVICE_PUBLISHER }}
       http:
         paths:
