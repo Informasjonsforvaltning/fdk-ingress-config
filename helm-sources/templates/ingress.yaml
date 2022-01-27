@@ -345,4 +345,5 @@ spec:
             backend:
               service:
                 name: fdk-monitoring-services-grafana
-                port: 3000
+                port:
+                  number: 3000
