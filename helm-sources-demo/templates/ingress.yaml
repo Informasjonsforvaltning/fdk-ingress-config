@@ -117,7 +117,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: organization-catalogue
+                name: organization-catalog
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_ORGANIZATION_CATALOG" .Values.HOSTNAME_ORGANIZATION_CATALOG }}
