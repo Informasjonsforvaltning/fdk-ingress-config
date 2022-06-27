@@ -249,7 +249,7 @@ spec:
               service:
                 name: fdk-mqa-scoring-api
                 port:
-                  number: 8080
+                  number: 8082
     - host: {{ required "Missing value HOSTNAME_DATASET_CATALOG" .Values.HOSTNAME_DATASET_CATALOG }}
       http:
         paths:
