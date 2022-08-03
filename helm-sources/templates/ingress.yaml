@@ -240,6 +240,16 @@ spec:
                 name: fdk-reports-bff
                 port:
                   number: 8080
+    - host: {{ required "Missing value HOSTNAME_MQA_SCORING_API" .Values.HOSTNAME_MQA_SCORING_API }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fdk-mqa-scoring-api
+                port:
+                  number: 8082
     - host: {{ required "Missing value HOSTNAME_DATASET_CATALOG" .Values.HOSTNAME_DATASET_CATALOG }}
       http:
         paths:
