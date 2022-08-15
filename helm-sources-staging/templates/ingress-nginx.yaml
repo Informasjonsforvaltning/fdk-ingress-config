@@ -5,14 +5,13 @@ metadata:
   namespace: {{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
     - host: {{ required "Missing value HOSTNAME_REGISTRATION" .Values.HOSTNAME_REGISTRATION }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-nginx-registration
@@ -21,8 +20,8 @@ spec:
     - host: {{ required "Missing HOSTNAME_WWW" .Values.HOSTNAME_WWW }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-nginx-search
@@ -31,8 +30,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_NAP" .Values.HOSTNAME_NAP }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-nginx-search
@@ -41,8 +40,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_CONCEPT_CATALOG_GUI" .Values.HOSTNAME_CONCEPT_CATALOG_GUI }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: concept-catalog-gui
@@ -51,8 +50,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_CONCEPT_CATALOGUE" .Values.HOSTNAME_CONCEPT_CATALOGUE }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: concept-catalog
@@ -61,8 +60,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_CONCEPT_CATALOG" .Values.HOSTNAME_CONCEPT_CATALOG }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: concept-catalog
@@ -71,8 +70,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_SSO" .Values.HOSTNAME_SSO }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: sso
@@ -81,8 +80,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_ADMIN" .Values.HOSTNAME_ADMIN }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-admin-gui
@@ -91,8 +90,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_ADMIN_API" .Values.HOSTNAME_ADMIN_API }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-harvest-admin
@@ -101,8 +100,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_BROKER_ADMIN" .Values.HOSTNAME_BROKER_ADMIN }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: rabbitmq
@@ -111,8 +110,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_ORGANIZATION_CATALOGUE" .Values.HOSTNAME_ORGANIZATION_CATALOGUE }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: organization-catalog
@@ -121,8 +120,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_ORGANIZATION_CATALOG" .Values.HOSTNAME_ORGANIZATION_CATALOG }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: organization-catalog
@@ -131,8 +130,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_PROTOCOL" .Values.HOSTNAME_PROTOCOL }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-nginx-records
@@ -141,8 +140,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_MODEL_PUBLISHER" .Values.HOSTNAME_MODEL_PUBLISHER }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: model-publisher
@@ -151,8 +150,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_DATASERVICE_PUBLISHER" .Values.HOSTNAME_DATASERVICE_PUBLISHER }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: dataservice-publisher
@@ -161,8 +160,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_DATASERVICE_HARVESTER" .Values.HOSTNAME_DATASERVICE_HARVESTER }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-dataservice-harvester
@@ -171,8 +170,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_SEARCH" .Values.HOSTNAME_SEARCH }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-fulltext-search
@@ -181,8 +180,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_DATASET_HARVESTER" .Values.HOSTNAME_DATASET_HARVESTER }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-dataset-harvester
@@ -191,8 +190,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_DATASERVICE_CATALOG" .Values.HOSTNAME_DATASERVICE_CATALOG }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-nginx-dataservices
@@ -201,8 +200,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_TERMS_AND_CONDITIONS" .Values.HOSTNAME_TERMS_AND_CONDITIONS }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: terms-and-conditions
@@ -211,8 +210,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_ORGANIZATION_BFF" .Values.HOSTNAME_ORGANIZATION_BFF }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-organization-bff
@@ -221,8 +220,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_REPORTS_BFF" .Values.HOSTNAME_REPORTS_BFF }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-reports-bff
@@ -231,8 +230,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_MQA_SCORING_API" .Values.HOSTNAME_MQA_SCORING_API }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-mqa-scoring-api
@@ -241,8 +240,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_DATASET_CATALOG" .Values.HOSTNAME_DATASET_CATALOG }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: dataset-catalog
@@ -251,8 +250,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_METADATA_QUALITY_SERVICE" .Values.HOSTNAME_METADATA_QUALITY_SERVICE }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-metadata-quality-service
@@ -261,8 +260,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_INFORMATIONMODEL_HARVESTER" .Values.HOSTNAME_INFORMATIONMODEL_HARVESTER }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-informationmodel-harvester
@@ -271,8 +270,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_DCAT_VALIDATOR" .Values.HOSTNAME_DCAT_VALIDATOR }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: dcat-ap-no-validator-service
@@ -281,8 +280,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_FDK_PUBLISHERS" .Values.HOSTNAME_FDK_PUBLISHERS }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-nginx-publishers
@@ -291,8 +290,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_CONCEPT_HARVESTER" .Values.HOSTNAME_CONCEPT_HARVESTER }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-concept-harvester
@@ -301,8 +300,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_FDK_COMMUNITY" .Values.HOSTNAME_FDK_COMMUNITY }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-nginx-community
@@ -311,8 +310,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_SPARQL_SERVICE" .Values.HOSTNAME_SPARQL_SERVICE }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: fdk-nginx-sparql
@@ -321,8 +320,8 @@ spec:
     - host: {{ required "Missing value HOSTNAME_CATALOG_COMMENTS" .Values.HOSTNAME_CATALOG_COMMENTS }}
       http:
         paths:
-          - path: /*
-            pathType: ImplementationSpecific
+          - path: /
+            pathType: Prefix
             backend:
               service:
                 name: catalog-comments-service
