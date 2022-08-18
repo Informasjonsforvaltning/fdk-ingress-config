@@ -1,13 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ required "Missing value FDK_INGRESSNAME" .Values.FDK_INGRESSNAME }}
+  name: {{ required "Missing value FDK_SUBNET_INGRESSNAME" .Values.FDK_SUBNET_INGRESSNAME }}
   namespace: {{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.global-static-ip-name: {{ required "Missing value FDK_INGRESS_IP_NAME" .Values.FDK_INGRESS_IP_NAME }}
-    ingress.gcp.kubernetes.io/pre-shared-cert: {{ required "Missing value FDK_ALL_CERT_NAMES" .Values.FDK_ALL_CERT_NAMES }}
-    networking.gke.io/v1beta1.FrontendConfig: {{ required "Missing value FDK_INGRESS_FRONTEND_CONFIG" .Values.FDK_INGRESS_FRONTEND_CONFIG }}
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
     - host: {{ required "Missing value HOSTNAME_REGISTRATION" .Values.HOSTNAME_REGISTRATION }}
@@ -108,16 +105,6 @@ spec:
             backend:
               service:
                 name: rabbitmq
-                port:
-                  number: 8080
-    - host: {{ required "Missing value HOSTNAME_PORTAL" .Values.HOSTNAME_PORTAL }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: fdk-nginx-search
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_ORGANIZATION_CATALOGUE" .Values.HOSTNAME_ORGANIZATION_CATALOGUE }}
