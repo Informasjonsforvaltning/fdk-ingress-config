@@ -1,4 +1,4 @@
-name: Deploy to staging (ipv4 & ipv6)
+name: Deploy to staging (portal ipv4 & ipv6, subnet)
 
 on:
   pull_request:
@@ -7,8 +7,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy-staging-ipv4:
-    name: Deploy ingress(ipv4) to staging environment when pull request is created
+  deploy-staging:
+    name: Deploy all ingresses to staging environment when pull request is created
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +20,7 @@ jobs:
         uses: timheuer/base64-to-file@master
         with:
           fileName: 'secret.yaml'
-          encodedString: ${{ secrets.DIGDIR_FDK_INGRESS_STAGING_IPV4 }}
+          encodedString: ${{ secrets.DIGDIR_FDK_INGRESS_STAGING }}
 
       - name: Apply Helm template
         run: |
@@ -28,7 +28,6 @@ jobs:
           ./helm-sources-staging/ > ./kubectlapply.yaml
           chmod o+w ./kubectlapply.yaml
           cat kubectlapply.yaml
-
       - name: Auth gcloud CLI for deploy
         uses: google-github-actions/auth@v0
         with:
@@ -38,55 +37,11 @@ jobs:
         run: |
           gcloud container clusters get-credentials digdir-fdk-dev --region europe-north1-a --project digdir-fdk-dev
           kubectl apply -f ./kubectlapply.yaml --force
-
       - name: Notify slack
         uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
-          author_name: 'Application: ingress(ipv4) | Environment: staging'
-          fields: commit,author,workflow
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: always()
-
-  deploy-staging-ipv6:
-    name: Deploy ingress(ipv6) to staging environment when pull request is created
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Create yaml file from secret
-        id: write_file
-        uses: timheuer/base64-to-file@master
-        with:
-          fileName: 'secret.yaml'
-          encodedString: ${{ secrets.DIGDIR_FDK_INGRESS_STAGING_IPV6 }}
-
-      - name: Apply Helm template
-        run: |
-          helm template -f ${{ steps.write_file.outputs.filePath }} \
-          ./helm-sources-staging/ > ./kubectlapply.yaml
-          chmod o+w ./kubectlapply.yaml
-          cat kubectlapply.yaml
-
-      - name: Auth gcloud CLI for deploy
-        uses: google-github-actions/auth@v0
-        with:
-          credentials_json: ${{ secrets.DIGDIR_FDK_DEV_AUTODEPLOY }}
-
-      - name: Deploy to GCP & check status
-        run: |
-          gcloud container clusters get-credentials digdir-fdk-dev --region europe-north1-a --project digdir-fdk-dev
-          kubectl apply -f ./kubectlapply.yaml --force
-
-      - name: Notify slack
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          author_name: 'Application: ingress(ipv6) | Environment: staging'
+          author_name: 'Application: ingress(portal,subnet) | Environment: staging'
           fields: commit,author,workflow
         env:
           GITHUB_TOKEN: ${{ github.token }}
