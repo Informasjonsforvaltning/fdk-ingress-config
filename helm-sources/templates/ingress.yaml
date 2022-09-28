@@ -367,3 +367,63 @@ spec:
                 name: fdk-monitoring-services-grafana
                 port:
                   number: 3000
+    - host: {{ required "Missing value HOSTNAME_KARMA" .Values.HOSTNAME_KARMA }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_ALERTMANAGER" .Values.HOSTNAME_ALERTMANAGER }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_PROMETHEUS" .Values.HOSTNAME_PROMETHEUS }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_GRAFANA" .Values.HOSTNAME_GRAFANA }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_THANOS" .Values.HOSTNAME_THANOS }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_THANOS_STORE" .Values.HOSTNAME_THANOS_STORE }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-nginx-ingress-nginx-controller
+                port:
+                  number: 80
