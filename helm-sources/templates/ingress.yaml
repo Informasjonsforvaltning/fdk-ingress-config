@@ -384,7 +384,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: nginx-nginx-ingress-nginx-controller
+                name: prod-nginx-ingress-nginx-controller
                 port:
                   number: 80
     - host: {{ required "Missing value HOSTNAME_ALERTMANAGER" .Values.HOSTNAME_ALERTMANAGER }}
@@ -394,7 +394,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: nginx-nginx-ingress-nginx-controller
+                name: prod-nginx-ingress-nginx-controller
                 port:
                   number: 80
     - host: {{ required "Missing value HOSTNAME_PROMETHEUS" .Values.HOSTNAME_PROMETHEUS }}
@@ -404,7 +404,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: nginx-nginx-ingress-nginx-controller
+                name: prod-nginx-ingress-nginx-controller
                 port:
                   number: 80
     - host: {{ required "Missing value HOSTNAME_GRAFANA" .Values.HOSTNAME_GRAFANA }}
@@ -414,7 +414,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: nginx-nginx-ingress-nginx-controller
+                name: prod-nginx-ingress-nginx-controller
                 port:
                   number: 80
     - host: {{ required "Missing value HOSTNAME_THANOS" .Values.HOSTNAME_THANOS }}
@@ -424,7 +424,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: nginx-nginx-ingress-nginx-controller
+                name: prod-nginx-ingress-nginx-controller
                 port:
                   number: 80
     - host: {{ required "Missing value HOSTNAME_THANOS_STORE" .Values.HOSTNAME_THANOS_STORE }}
@@ -434,6 +434,6 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: nginx-nginx-ingress-nginx-controller
+                name: prod-nginx-ingress-nginx-controller
                 port:
                   number: 80
