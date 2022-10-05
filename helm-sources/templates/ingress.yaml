@@ -10,6 +10,16 @@ metadata:
     networking.gke.io/v1beta1.FrontendConfig: {{ required "Missing value FDK_INGRESS_FRONTEND_CONFIG" .Values.FDK_INGRESS_FRONTEND_CONFIG }}
 spec:
   rules:
+    - host: {{ required "Missing value HOSTNAME_DATA_NORGE" .Values.HOSTNAME_DATA_NORGE }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fdk-nginx-search
+                port:
+                  number: 8080
     - host: {{ required "Missing value HOSTNAME_REGISTRATION" .Values.HOSTNAME_REGISTRATION }}
       http:
         paths:
