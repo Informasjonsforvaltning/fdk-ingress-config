@@ -270,16 +270,6 @@ spec:
                 name: dataset-catalog
                 port:
                   number: 8080
-    - host: {{ required "Missing value HOSTNAME_METADATA_QUALITY_SERVICE" .Values.HOSTNAME_METADATA_QUALITY_SERVICE }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: fdk-metadata-quality-service
-                port:
-                  number: 8080
     - host: {{ required "Missing value HOSTNAME_INFORMATIONMODEL_HARVESTER" .Values.HOSTNAME_INFORMATIONMODEL_HARVESTER }}
       http:
         paths:
