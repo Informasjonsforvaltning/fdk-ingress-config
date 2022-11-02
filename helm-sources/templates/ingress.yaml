@@ -367,16 +367,6 @@ spec:
                 name: fdk-cms-service
                 port:
                   number: 8080
-    - host: {{ required "Missing value HOSTNAME_FDK_MONITORING_SERVICES_GRAFANA" .Values.HOSTNAME_FDK_MONITORING_SERVICES_GRAFANA }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: fdk-monitoring-services-grafana
-                port:
-                  number: 3000
     - host: {{ required "Missing value HOSTNAME_KARMA" .Values.HOSTNAME_KARMA }}
       http:
         paths:
