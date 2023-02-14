@@ -34,9 +34,14 @@ jobs:
         with:
           credentials_json: ${{ secrets.DIGDIR_FDK_DEV_AUTODEPLOY }}
 
+      - name: Get credentials
+        uses: google-github-actions/get-gke-credentials@v1
+        with:
+          cluster_name: digdir-fdk-dev
+          location: europe-north1-a
+
       - name: Deploy to GCP & check status
         run: |
-          gcloud container clusters get-credentials digdir-fdk-dev --region europe-north1-a --project digdir-fdk-dev
           kubectl apply -f ./kubectlapply.yaml --force
 
       - name: Notify slack
@@ -77,9 +82,14 @@ jobs:
         with:
           credentials_json: ${{ secrets.DIGDIR_FDK_DEV_AUTODEPLOY }}
 
+      - name: Get credentials
+        uses: google-github-actions/get-gke-credentials@v1
+        with:
+          cluster_name: digdir-fdk-dev
+          location: europe-north1-a
+
       - name: Deploy to GCP & check status
         run: |
-          gcloud container clusters get-credentials digdir-fdk-dev --region europe-north1-a --project digdir-fdk-dev
           kubectl apply -f ./kubectlapply.yaml --force
 
       - name: Notify slack
