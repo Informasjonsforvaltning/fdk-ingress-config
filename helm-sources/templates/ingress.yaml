@@ -427,3 +427,13 @@ spec:
                 name: prod-nginx-ingress-nginx-controller
                 port:
                   number: 80
+    - host: {{ required "Missing value HOSTNAME_AI_PROJECT" .Values.HOSTNAME_AI_PROJECT }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: prod-nginx-ingress-nginx-controller
+                port:
+                  number: 80
