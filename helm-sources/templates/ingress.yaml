@@ -247,7 +247,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: fdk-organization-bff
+                name: fdk-nginx-organization-bff
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_REPORTS_BFF" .Values.HOSTNAME_REPORTS_BFF }}
