@@ -9,11 +9,12 @@ on:
 jobs:
   deploy-staging-ipv4:
     name: Deploy ingress(ipv4) to staging environment when pull request is created
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Create yaml file from secret
         id: write_file
@@ -30,7 +31,7 @@ jobs:
           cat kubectlapply.yaml
 
       - name: Auth gcloud CLI for deploy
-        uses: google-github-actions/auth@v0
+        uses: google-github-actions/auth@v1
         with:
           credentials_json: ${{ secrets.DIGDIR_FDK_DEV_AUTODEPLOY }}
 
@@ -57,11 +58,12 @@ jobs:
 
   deploy-staging-ipv6:
     name: Deploy ingress(ipv6) to staging environment when pull request is created
+    if: github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Create yaml file from secret
         id: write_file
@@ -78,7 +80,7 @@ jobs:
           cat kubectlapply.yaml
 
       - name: Auth gcloud CLI for deploy
-        uses: google-github-actions/auth@v0
+        uses: google-github-actions/auth@v1
         with:
           credentials_json: ${{ secrets.DIGDIR_FDK_DEV_AUTODEPLOY }}
 
