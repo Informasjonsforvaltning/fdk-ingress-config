@@ -467,3 +467,23 @@ spec:
                 name: prod-nginx-ingress-nginx-controller
                 port:
                   number: 80
+    - host: {{ required "Missing value HOSTNAME_API_ACCESS_REQUEST" .Values.HOSTNAME_API_ACCESS_REQUEST }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: prod-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_API_ACCESS_REQUEST_GUI" .Values.HOSTNAME_API_ACCESS_REQUEST_GUI }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: prod-nginx-ingress-nginx-controller
+                port:
+                  number: 80
