@@ -353,13 +353,6 @@ spec:
     - host: {{ required "Missing value HOSTNAME_FDK_CMS_SERVICE" .Values.HOSTNAME_FDK_CMS_SERVICE }}
       http:
         paths:
-          - path: /admin/*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: fdk-cms-service-admin
-                port:
-                  number: 8080
           - path: /*
             pathType: ImplementationSpecific
             backend:
