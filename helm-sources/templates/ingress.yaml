@@ -490,3 +490,23 @@ spec:
                 name: prod-nginx-ingress-nginx-controller
                 port:
                   number: 80
+    - host: {{ required "Missing value HOSTNAME_SERVICE_CATALOG" .Values.HOSTNAME_SERVICE_CATALOG }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: prod-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_SERVICE_CATALOG_GUI" .Values.HOSTNAME_SERVICE_CATALOG_GUI }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: prod-nginx-ingress-nginx-controller
+                port:
+                  number: 80
