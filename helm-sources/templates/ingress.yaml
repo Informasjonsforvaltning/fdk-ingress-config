@@ -300,16 +300,6 @@ spec:
                 name: dcat-ap-no-validator-service
                 port:
                   number: 8080
-    - host: {{ required "Missing value HOSTNAME_FDK_PUBLISHERS" .Values.HOSTNAME_FDK_PUBLISHERS }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: fdk-nginx-publishers
-                port:
-                  number: 8080
     - host: {{ required "Missing value HOSTNAME_CONCEPT_HARVESTER" .Values.HOSTNAME_CONCEPT_HARVESTER }}
       http:
         paths:
