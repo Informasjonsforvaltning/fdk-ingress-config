@@ -510,3 +510,13 @@ spec:
                 number: 80
           path: /*
           pathType: ImplementationSpecific
+    - host: {{ required "Missing value HOSTNAME_RESOURCE_SERVICE" .Values.HOSTNAME_RESOURCE_SERVICE }}
+      http:
+        paths:
+        - backend:
+            service:
+              name: prod-nginx-ingress-nginx-controller
+              port:
+                number: 80
+          path: /*
+          pathType: ImplementationSpecific
