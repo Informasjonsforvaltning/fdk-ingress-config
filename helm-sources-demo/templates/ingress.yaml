@@ -160,16 +160,6 @@ spec:
                 name: fdk-dataservice-harvester
                 port:
                   number: 8080
-    - host: {{ required "Missing value HOSTNAME_SEARCH" .Values.HOSTNAME_SEARCH }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: fdk-fulltext-search
-                port:
-                  number: 8080
     - host: {{ required "Missing value HOSTNAME_DATASET_HARVESTER" .Values.HOSTNAME_DATASET_HARVESTER }}
       http:
         paths:
