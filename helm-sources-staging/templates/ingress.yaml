@@ -140,16 +140,6 @@ spec:
                 name: fdk-nginx-records
                 port:
                   number: 8080
-    - host: {{ required "Missing value HOSTNAME_MODEL_PUBLISHER" .Values.HOSTNAME_MODEL_PUBLISHER }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: model-publisher
-                port:
-                  number: 8080
     - host: {{ required "Missing value HOSTNAME_DATASERVICE_PUBLISHER" .Values.HOSTNAME_DATASERVICE_PUBLISHER }}
       http:
         paths:
