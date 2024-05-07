@@ -63,7 +63,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Create yaml file from secret
         id: write_file
@@ -80,12 +80,12 @@ jobs:
           cat kubectlapply.yaml
 
       - name: Auth gcloud CLI for deploy
-        uses: google-github-actions/auth@v1
+        uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.DIGDIR_FDK_PROD_AUTODEPLOY }}
 
       - name: Get credentials
-        uses: google-github-actions/get-gke-credentials@v1
+        uses: google-github-actions/get-gke-credentials@v2
         with:
           cluster_name: digdir-fdk-prod
           location: europe-north1-a
