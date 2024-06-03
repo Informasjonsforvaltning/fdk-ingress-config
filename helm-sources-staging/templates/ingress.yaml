@@ -157,7 +157,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: fdk-dataservice-harvester
+                name: nginx-harvester
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_DATASET_HARVESTER" .Values.HOSTNAME_DATASET_HARVESTER }}
@@ -167,7 +167,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: fdk-dataset-harvester
+                name: nginx-harvester
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_DATASERVICE_CATALOG" .Values.HOSTNAME_DATASERVICE_CATALOG }}
@@ -237,7 +237,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: fdk-informationmodel-harvester
+                name: nginx-harvester
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_DCAT_VALIDATOR" .Values.HOSTNAME_DCAT_VALIDATOR }}
@@ -257,7 +257,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: fdk-concept-harvester
+                name: nginx-harvester
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_FDK_COMMUNITY" .Values.HOSTNAME_FDK_COMMUNITY }}
