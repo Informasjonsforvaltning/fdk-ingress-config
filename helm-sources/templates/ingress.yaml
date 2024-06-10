@@ -170,16 +170,6 @@ spec:
                 name: fdk-nginx-search
                 port:
                   number: 8080
-    - host: {{ required "Missing value HOSTNAME_DATA_TRANSPORTPORTAL" .Values.HOSTNAME_DATA_TRANSPORTPORTAL }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: fdk-nginx-search
-                port:
-                  number: 8080
     - host: {{ required "Missing value HOSTNAME_DATASERVICE_PUBLISHER" .Values.HOSTNAME_DATASERVICE_PUBLISHER }}
       http:
         paths:
