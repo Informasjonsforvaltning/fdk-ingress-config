@@ -140,16 +140,6 @@ spec:
                 name: fdk-nginx-records
                 port:
                   number: 8080
-    - host: {{ required "Missing value HOSTNAME_DATASERVICE_PUBLISHER" .Values.HOSTNAME_DATASERVICE_PUBLISHER }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: dataservice-publisher
-                port:
-                  number: 8080
     - host: {{ required "Missing value HOSTNAME_DATASERVICE_HARVESTER" .Values.HOSTNAME_DATASERVICE_HARVESTER }}
       http:
         paths:
