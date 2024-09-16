@@ -170,16 +170,6 @@ spec:
                 name: fdk-nginx-search
                 port:
                   number: 8080
-    - host: {{ required "Missing value HOSTNAME_DATASERVICE_PUBLISHER" .Values.HOSTNAME_DATASERVICE_PUBLISHER }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: dataservice-publisher
-                port:
-                  number: 8080
     - host: {{ required "Missing value HOSTNAME_DATASERVICE_HARVESTER" .Values.HOSTNAME_DATASERVICE_HARVESTER }}
       http:
         paths:
@@ -511,6 +501,16 @@ spec:
           path: /*
           pathType: ImplementationSpecific
     - host: {{ required "Missing value HOSTNAME_LLM_SEARCH_SERVICE" .Values.HOSTNAME_LLM_SEARCH_SERVICE }}
+      http:
+        paths:
+        - backend:
+            service:
+              name: prod-nginx-ingress-nginx-controller
+              port:
+                number: 80
+          path: /*
+          pathType: ImplementationSpecific
+    - host: {{ required "Missing value HOSTNAME_CATALOG_PORTAL_FRONTEND" .Values.HOSTNAME_CATALOG_PORTAL_FRONTEND }}
       http:
         paths:
         - backend:
