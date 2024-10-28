@@ -520,3 +520,23 @@ spec:
                 number: 80
           path: /*
           pathType: ImplementationSpecific
+    - host: {{ required "Missing value HOSTNAME_STATISTICS_SERVICE" .Values.HOSTNAME_STATISTICS_SERVICE }}
+      http:
+        paths:
+        - backend:
+            service:
+              name: prod-nginx-ingress-nginx-controller
+              port:
+                number: 80
+          path: /*
+          pathType: ImplementationSpecific
+    - host: {{ required "Missing value HOSTNAME_ACCESS_REQUEST_API" .Values.HOSTNAME_ACCESS_REQUEST_API }}
+      http:
+        paths:
+        - backend:
+            service:
+              name: prod-nginx-ingress-nginx-controller
+              port:
+                number: 80
+          path: /*
+          pathType: ImplementationSpecific
