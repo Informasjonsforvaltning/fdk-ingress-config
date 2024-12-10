@@ -77,7 +77,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: concept-catalog
+                name: nginx-catalog
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_SSO" .Values.HOSTNAME_SSO }}
@@ -187,7 +187,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: fdk-nginx-dataservices
+                name: nginx-catalog
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_TERMS_AND_CONDITIONS" .Values.HOSTNAME_TERMS_AND_CONDITIONS }}
@@ -197,7 +197,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: terms-and-conditions
+                name: nginx-catalog
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_ORGANIZATION_BFF" .Values.HOSTNAME_ORGANIZATION_BFF }}
@@ -237,7 +237,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: dataset-catalog
+                name: nginx-catalog
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_INFORMATIONMODEL_HARVESTER" .Values.HOSTNAME_INFORMATIONMODEL_HARVESTER }}
@@ -297,7 +297,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: catalog-comments-service
+                name: nginx-catalog
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_FDK_CMS_SERVICE" .Values.HOSTNAME_FDK_CMS_SERVICE }}
@@ -397,7 +397,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: prod-nginx-ingress-nginx-controller
+                name: nginx-catalog
                 port:
                   number: 80
     - host: {{ required "Missing value HOSTNAME_CONCEPT_CATALOG_FRONTEND" .Values.HOSTNAME_CONCEPT_CATALOG_FRONTEND }}
@@ -417,7 +417,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: prod-nginx-ingress-nginx-controller
+                name: nginx-catalog
                 port:
                   number: 80
     - host: {{ required "Missing value HOSTNAME_API_ACCESS_REQUEST" .Values.HOSTNAME_API_ACCESS_REQUEST }}
@@ -447,7 +447,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: prod-nginx-ingress-nginx-controller
+                name: nginx-catalog
                 port:
                   number: 80
     - host: {{ required "Missing value HOSTNAME_SERVICE_CATALOG_GUI" .Values.HOSTNAME_SERVICE_CATALOG_GUI }}
