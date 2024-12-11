@@ -157,7 +157,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: nginx-catalog
+                name: fdk-nginx-dataservices
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_TERMS_AND_CONDITIONS" .Values.HOSTNAME_TERMS_AND_CONDITIONS }}
