@@ -240,16 +240,6 @@ spec:
                 name: nginx-harvester
                 port:
                   number: 8080
-    - host: {{ required "Missing value HOSTNAME_DCAT_VALIDATOR" .Values.HOSTNAME_DCAT_VALIDATOR }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: dcat-ap-no-validator-service
-                port:
-                  number: 8080
     - host: {{ required "Missing value HOSTNAME_CONCEPT_HARVESTER" .Values.HOSTNAME_CONCEPT_HARVESTER }}
       http:
         paths:
