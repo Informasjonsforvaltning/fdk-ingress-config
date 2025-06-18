@@ -47,7 +47,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: concept-catalog
+                name: nginx-catalog
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_SSO" .Values.HOSTNAME_SSO }}
@@ -157,7 +157,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: terms-and-conditions
+                name: nginx-catalog
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_ORGANIZATION_BFF" .Values.HOSTNAME_ORGANIZATION_BFF }}
@@ -197,7 +197,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: dataset-catalog
+                name: nginx-catalog
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_INFORMATIONMODEL_HARVESTER" .Values.HOSTNAME_INFORMATIONMODEL_HARVESTER }}
@@ -237,6 +237,6 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: catalog-comments-service
+                name: nginx-catalog
                 port:
                   number: 8080
