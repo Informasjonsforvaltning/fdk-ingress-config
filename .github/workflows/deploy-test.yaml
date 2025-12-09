@@ -23,7 +23,7 @@ jobs:
       - name: Apply Helm template
         run: |
           helm template -f ${{ steps.write_file.outputs.filePath }} \
-          ./helm-sources-staging/ > ./kubectlapply.yaml
+          ./helm-sources-test/ > ./kubectlapply.yaml
           chmod o+w ./kubectlapply.yaml
           cat kubectlapply.yaml
 
@@ -71,7 +71,7 @@ jobs:
       - name: Apply Helm template
         run: |
           helm template -f ${{ steps.write_file.outputs.filePath }} \
-          ./helm-sources-staging/ > ./kubectlapply.yaml
+          ./helm-sources-test/ > ./kubectlapply.yaml
           chmod o+w ./kubectlapply.yaml
           cat kubectlapply.yaml
 
@@ -94,7 +94,7 @@ jobs:
         uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
-          author_name: 'Application: ingress(ipv6) | Environment: staging'
+          author_name: 'Application: ingress(ipv6) | Environment: test'
           fields: commit,author,workflow
         env:
           GITHUB_TOKEN: ${{ github.token }}

@@ -445,7 +445,7 @@ spec:
 #        paths:
 #        - backend:
 #            service:
-#              name: prod-nginx-ingress-nginx-controller
+#              name: test-nginx-ingress-nginx-controller
 #              port:
 #                number: 80
 #          path: /*
