@@ -1,0 +1,452 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ required "Missing value FDK_INGRESSNAME" .Values.FDK_INGRESSNAME }}
+  namespace: {{ required "Missing value NAMESPACE" .Values.NAMESPACE }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.global-static-ip-name: {{ required "Missing value FDK_INGRESS_IP_NAME" .Values.FDK_INGRESS_IP_NAME }}
+    ingress.gcp.kubernetes.io/pre-shared-cert: {{ required "Missing value FDK_ALL_CERT_NAMES" .Values.FDK_ALL_CERT_NAMES }}
+    networking.gke.io/v1beta1.FrontendConfig: {{ required "Missing value FDK_INGRESS_FRONTEND_CONFIG" .Values.FDK_INGRESS_FRONTEND_CONFIG }}
+spec:
+  rules:
+#    - host: {{ required "Missing value HOSTNAME_REGISTRATION" .Values.HOSTNAME_REGISTRATION }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: fdk-nginx-registration
+#                port:
+#                  number: 8080
+    - host: {{ required "Missing HOSTNAME_WWW" .Values.HOSTNAME_WWW }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fdk-nginx-search
+                port:
+                  number: 8080
+    - host: {{ required "Missing value HOSTNAME_NAP" .Values.HOSTNAME_NAP }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fdk-nginx-search
+                port:
+                  number: 8080
+#    - host: {{ required "Missing value HOSTNAME_CONCEPT_CATALOG" .Values.HOSTNAME_CONCEPT_CATALOG }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: concept-catalog
+#                port:
+#                  number: 8080
+#    - host: {{ required "Missing value HOSTNAME_SSO" .Values.HOSTNAME_SSO }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: sso
+#                port:
+#                  number: 8080
+#    - host: {{ required "Missing value HOSTNAME_ADMIN" .Values.HOSTNAME_ADMIN }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: fdk-admin-gui
+#                port:
+#                  number: 8080
+    - host: {{ required "Missing value HOSTNAME_ADMIN_API" .Values.HOSTNAME_ADMIN_API }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fdk-harvest-admin
+                port:
+                  number: 8080
+#    - host: {{ required "Missing value HOSTNAME_PORTAL" .Values.HOSTNAME_PORTAL }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: fdk-nginx-search
+#                port:
+#                  number: 8080
+    - host: {{ required "Missing value HOSTNAME_ORGANIZATION_CATALOGUE" .Values.HOSTNAME_ORGANIZATION_CATALOGUE }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: organization-catalog
+                port:
+                  number: 8080
+    - host: {{ required "Missing value HOSTNAME_ORGANIZATION_CATALOG" .Values.HOSTNAME_ORGANIZATION_CATALOG }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: organization-catalog
+                port:
+                  number: 8080
+    - host: {{ required "Missing value HOSTNAME_DATASERVICE_HARVESTER" .Values.HOSTNAME_DATASERVICE_HARVESTER }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-harvester
+                port:
+                  number: 8080
+    - host: {{ required "Missing value HOSTNAME_DATASET_HARVESTER" .Values.HOSTNAME_DATASET_HARVESTER }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-harvester
+                port:
+                  number: 8080
+#    - host: {{ required "Missing value HOSTNAME_DATASERVICE_CATALOG" .Values.HOSTNAME_DATASERVICE_CATALOG }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: fdk-nginx-dataservices
+#                port:
+#                  number: 8080
+#    - host: {{ required "Missing value HOSTNAME_TERMS_AND_CONDITIONS" .Values.HOSTNAME_TERMS_AND_CONDITIONS }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: terms-and-conditions
+#                port:
+#                  number: 8080
+    - host: {{ required "Missing value HOSTNAME_ORGANIZATION_BFF" .Values.HOSTNAME_ORGANIZATION_BFF }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fdk-nginx-organization-bff
+                port:
+                  number: 8080
+#    - host: {{ required "Missing value HOSTNAME_MQA_SCORING_API" .Values.HOSTNAME_MQA_SCORING_API }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: fdk-mqa-scoring-api
+#                port:
+#                  number: 8082
+#    - host: {{ required "Missing value HOSTNAME_DATASET_CATALOG" .Values.HOSTNAME_DATASET_CATALOG }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: dataset-catalog
+#                port:
+#                  number: 8080
+    - host: {{ required "Missing value HOSTNAME_INFORMATIONMODEL_HARVESTER" .Values.HOSTNAME_INFORMATIONMODEL_HARVESTER }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-harvester
+                port:
+                  number: 8080
+    - host: {{ required "Missing value HOSTNAME_CONCEPT_HARVESTER" .Values.HOSTNAME_CONCEPT_HARVESTER }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: nginx-harvester
+                port:
+                  number: 8080
+#    - host: {{ required "Missing value HOSTNAME_FDK_COMMUNITY" .Values.HOSTNAME_FDK_COMMUNITY }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: fdk-nginx-community
+#                port:
+#                  number: 8080
+    - host: {{ required "Missing value HOSTNAME_SPARQL_SERVICE" .Values.HOSTNAME_SPARQL_SERVICE }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: fdk-nginx-sparql
+                port:
+                  number: 8080
+#    - host: {{ required "Missing value HOSTNAME_CATALOG_COMMENTS" .Values.HOSTNAME_CATALOG_COMMENTS }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: catalog-comments-service
+#                port:
+#                  number: 8080
+#    - host: {{ required "Missing value HOSTNAME_FDK_CMS_SERVICE" .Values.HOSTNAME_FDK_CMS_SERVICE }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: fdk-cms-service
+#                port:
+#                  number: 8080
+    - host: {{ required "Missing value HOSTNAME_KARMA" .Values.HOSTNAME_KARMA }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: test-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_ALERTMANAGER" .Values.HOSTNAME_ALERTMANAGER }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: test-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_PROMETHEUS" .Values.HOSTNAME_PROMETHEUS }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: test-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_GRAFANA" .Values.HOSTNAME_GRAFANA }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: test-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_THANOS" .Values.HOSTNAME_THANOS }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: test-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_THANOS_STORE" .Values.HOSTNAME_THANOS_STORE }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: test-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+    - host: {{ required "Missing value HOSTNAME_AI_PROJECT" .Values.HOSTNAME_AI_PROJECT }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: test-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+#    - host: {{ required "Missing value HOSTNAME_CATALOG_ADMIN" .Values.HOSTNAME_CATALOG_ADMIN }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: test-nginx-ingress-nginx-controller
+#                port:
+#                  number: 80
+#    - host: {{ required "Missing value HOSTNAME_CATALOG_HISTORY" .Values.HOSTNAME_CATALOG_HISTORY }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: test-nginx-ingress-nginx-controller
+#                port:
+#                  number: 80
+#    - host: {{ required "Missing value HOSTNAME_CONCEPT_CATALOG_FRONTEND" .Values.HOSTNAME_CONCEPT_CATALOG_FRONTEND }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: test-nginx-ingress-nginx-controller
+#                port:
+#                  number: 80
+    - host: {{ required "Missing value HOSTNAME_CATALOG_ADMIN_SERVICE" .Values.HOSTNAME_CATALOG_ADMIN_SERVICE }}
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: test-nginx-ingress-nginx-controller
+                port:
+                  number: 80
+#    - host: {{ required "Missing value HOSTNAME_SERVICE_CATALOG" .Values.HOSTNAME_SERVICE_CATALOG }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: test-nginx-ingress-nginx-controller
+#                port:
+#                  number: 80
+#    - host: {{ required "Missing value HOSTNAME_SERVICE_CATALOG_GUI" .Values.HOSTNAME_SERVICE_CATALOG_GUI }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: test-nginx-ingress-nginx-controller
+#                port:
+#                  number: 80
+#    - host: {{ required "Missing value HOSTNAME_CATALOG_VIEW" .Values.HOSTNAME_CATALOG_VIEW }}
+#      http:
+#        paths:
+#          - path: /*
+#            pathType: ImplementationSpecific
+#            backend:
+#              service:
+#                name: test-nginx-ingress-nginx-controller
+#                port:
+#                  number: 80
+#    - host: {{ required "Missing value HOSTNAME_SEARCH_SERVICE" .Values.HOSTNAME_SEARCH_SERVICE }}
+#      http:
+#        paths:
+#        - backend:
+#            service:
+#              name: test-nginx-ingress-nginx-controller
+#              port:
+#                number: 80
+#          path: /*
+#          pathType: ImplementationSpecific
+#    - host: {{ required "Missing value HOSTNAME_RESOURCE_SERVICE" .Values.HOSTNAME_RESOURCE_SERVICE }}
+#      http:
+#        paths:
+#        - backend:
+#            service:
+#              name: test-nginx-ingress-nginx-controller
+#              port:
+#                number: 80
+#          path: /*
+#          pathType: ImplementationSpecific
+    - host: {{ required "Missing value HOSTNAME_LLM_SEARCH_SERVICE" .Values.HOSTNAME_LLM_SEARCH_SERVICE }}
+      http:
+        paths:
+        - backend:
+            service:
+              name: test-nginx-ingress-nginx-controller
+              port:
+                number: 80
+          path: /*
+          pathType: ImplementationSpecific
+#    - host: {{ required "Missing value HOSTNAME_CATALOG_PORTAL_FRONTEND" .Values.HOSTNAME_CATALOG_PORTAL_FRONTEND }}
+#      http:
+#        paths:
+#        - backend:
+#            service:
+#              name: test-nginx-ingress-nginx-controller
+#              port:
+#                number: 80
+#          path: /*
+#          pathType: ImplementationSpecific
+    - host: {{ required "Missing value HOSTNAME_STATISTICS_SERVICE" .Values.HOSTNAME_STATISTICS_SERVICE }}
+      http:
+        paths:
+        - backend:
+            service:
+              name: test-nginx-ingress-nginx-controller
+              port:
+                number: 80
+          path: /*
+          pathType: ImplementationSpecific
+#    - host: {{ required "Missing value HOSTNAME_ACCESS_REQUEST_API" .Values.HOSTNAME_ACCESS_REQUEST_API }}
+#      http:
+#        paths:
+#        - backend:
+#            service:
+#              name: test-nginx-ingress-nginx-controller
+#              port:
+#                number: 80
+#          path: /*
+#          pathType: ImplementationSpecific
+#    - host: {{ required "Missing value HOSTNAME_DATASET_CATALOG_FRONTEND" .Values.HOSTNAME_DATASET_CATALOG_FRONTEND }}
+#      http:
+#        paths:
+#        - backend:
+#            service:
+#              name: prod-nginx-ingress-nginx-controller
+#              port:
+#                number: 80
+#          path: /*
+#          pathType: ImplementationSpecific
