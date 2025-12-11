@@ -460,3 +460,13 @@ spec:
                 number: 80
           path: /*
           pathType: ImplementationSpecific
+    - host: {{ required "Missing value HOSTNAME_HARVEST_ADMIN_API" .Values.HOSTNAME_HARVEST_ADMIN_API }}
+      http:
+        paths:
+        - backend:
+            service:
+              name: test-nginx-ingress-nginx-controller
+              port:
+                number: 80
+          path: /*
+          pathType: ImplementationSpecific
