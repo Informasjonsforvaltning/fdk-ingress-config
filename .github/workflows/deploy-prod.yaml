@@ -1,5 +1,9 @@
 name: Deploy to production (ipv4 & ipv6)
 
+permissions:
+  contents: read
+  packages: write
+
 on:
   push:
     branches:

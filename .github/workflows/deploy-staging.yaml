@@ -1,5 +1,9 @@
 name: Deploy to staging (ipv4 & ipv6)
 
+permissions:
+  contents: read
+  packages: write
+
 on:
   pull_request:
     branches:
