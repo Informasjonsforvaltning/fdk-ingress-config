@@ -130,16 +130,6 @@ spec:
                 name: organization-catalog
                 port:
                   number: 8080
-    - host: {{ required "Missing value HOSTNAME_PROTOCOL" .Values.HOSTNAME_PROTOCOL }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: fdk-nginx-records
-                port:
-                  number: 8080
     - host: {{ required "Missing value HOSTNAME_TRANSPORTPORTAL" .Values.HOSTNAME_TRANSPORTPORTAL }}
       http:
         paths:
