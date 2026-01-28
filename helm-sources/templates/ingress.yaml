@@ -507,6 +507,6 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: data-service-catalog
+                name: prod-nginx-ingress-nginx-controller
                 port:
                   number: 8080
