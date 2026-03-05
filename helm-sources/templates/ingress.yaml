@@ -97,7 +97,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: fdk-harvest-admin
+                name: fdk-harvest-admin-service
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_PORTAL" .Values.HOSTNAME_PORTAL }}
