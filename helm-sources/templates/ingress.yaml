@@ -97,9 +97,9 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: fdk-harvest-admin-service
+                name: prod-nginx-ingress-nginx-controller
                 port:
-                  number: 8080
+                  number: 80
     - host: {{ required "Missing value HOSTNAME_PORTAL" .Values.HOSTNAME_PORTAL }}
       http:
         paths:
