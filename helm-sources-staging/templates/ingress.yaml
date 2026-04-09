@@ -60,7 +60,7 @@ spec:
                 name: sso
                 port:
                   number: 8080
-    - host: {{ required "Missing value HOSTNAME_ADMIN" .Values.HOSTNAME_ADMIN }}
+    - host: {{ required "Missing value HOSTNAME_HARVEST_ADMIN_FRONTEND" .Values.HOSTNAME_HARVEST_ADMIN_FRONTEND }}
       http:
         paths:
           - path: /*
@@ -68,16 +68,6 @@ spec:
             backend:
               service:
                 name: fdk-admin-gui
-                port:
-                  number: 8080
-    - host: {{ required "Missing value HOSTNAME_ADMIN_API" .Values.HOSTNAME_ADMIN_API }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: fdk-harvest-admin
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_PORTAL" .Values.HOSTNAME_PORTAL }}
@@ -108,26 +98,6 @@ spec:
             backend:
               service:
                 name: organization-catalog
-                port:
-                  number: 8080
-    - host: {{ required "Missing value HOSTNAME_DATASERVICE_HARVESTER" .Values.HOSTNAME_DATASERVICE_HARVESTER }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: nginx-harvester
-                port:
-                  number: 8080
-    - host: {{ required "Missing value HOSTNAME_DATASET_HARVESTER" .Values.HOSTNAME_DATASET_HARVESTER }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: nginx-harvester
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_DATASERVICE_CATALOG" .Values.HOSTNAME_DATASERVICE_CATALOG }}
@@ -178,26 +148,6 @@ spec:
             backend:
               service:
                 name: dataset-catalog
-                port:
-                  number: 8080
-    - host: {{ required "Missing value HOSTNAME_INFORMATIONMODEL_HARVESTER" .Values.HOSTNAME_INFORMATIONMODEL_HARVESTER }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: nginx-harvester
-                port:
-                  number: 8080
-    - host: {{ required "Missing value HOSTNAME_CONCEPT_HARVESTER" .Values.HOSTNAME_CONCEPT_HARVESTER }}
-      http:
-        paths:
-          - path: /*
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: nginx-harvester
                 port:
                   number: 8080
     - host: {{ required "Missing value HOSTNAME_FDK_COMMUNITY" .Values.HOSTNAME_FDK_COMMUNITY }}
