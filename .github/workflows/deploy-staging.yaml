@@ -22,7 +22,7 @@ jobs:
 
       - name: Create yaml file from secret
         id: write_file
-        uses: timheuer/base64-to-file@adaa40c0c581f276132199d4cf60afa07ce60eac  # v1.2.4
+        uses: timheuer/base64-to-file@dfa5a5dd38803cb4f5c3a081eeb28e8362d43e9c  # v1.2.4
         with:
           fileName: 'secret.yaml'
           encodedString: ${{ secrets.DIGDIR_FDK_INGRESS_STAGING_IPV4 }}
@@ -71,7 +71,7 @@ jobs:
 
       - name: Create yaml file from secret
         id: write_file
-        uses: timheuer/base64-to-file@adaa40c0c581f276132199d4cf60afa07ce60eac  # v1.2.4
+        uses: timheuer/base64-to-file@dfa5a5dd38803cb4f5c3a081eeb28e8362d43e9c  # v1.2.4
         with:
           fileName: 'secret.yaml'
           encodedString: ${{ secrets.DIGDIR_FDK_INGRESS_STAGING_IPV6 }}
